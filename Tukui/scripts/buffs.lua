@@ -13,13 +13,15 @@ TemporaryEnchantFrame.SetPoint = TukuiDB.dummy
 
 TempEnchant1:ClearAllPoints()
 TempEnchant2:ClearAllPoints()
+TempEnchant3:ClearAllPoints()
 TempEnchant1:SetPoint("TOPRIGHT", TukuiMinimap, "TOPLEFT", TukuiDB.Scale(-3), 0)
 TempEnchant2:SetPoint("RIGHT", TempEnchant1, "LEFT", TukuiDB.Scale(-3), 0)
+TempEnchant3:SetPoint("RIGHT", TempEnchant2, "LEFT", TukuiDB.Scale(-3), 0)
 
 WorldStateAlwaysUpFrame:SetFrameStrata("BACKGROUND")
 WorldStateAlwaysUpFrame:SetFrameLevel(0)
 
-for i = 1, 2 do
+for i = 1, 3 do
 	local f = CreateFrame("Frame", nil, _G["TempEnchant"..i])
 	TukuiDB.CreatePanel(f, 30, 30, "CENTER", _G["TempEnchant"..i], "CENTER", 0, 0)	
 	_G["TempEnchant"..i.."Border"]:Hide()
@@ -102,7 +104,7 @@ local function UpdateBuffAnchors()
 				end
 				aboveBuff = buff;
 			elseif ( index == 1 ) then
-				local mainhand, _, _, offhand = GetWeaponEnchantInfo()
+				local mainhand, _, _, offhand, _, _, thrown = GetWeaponEnchantInfo()
 				if mainhand and offhand and not UnitHasVehicleUI("player") then
 					buff:SetPoint("RIGHT", TempEnchant2, "LEFT", TukuiDB.Scale(-3), 0)
 				elseif ((mainhand and not offhand) or (offhand and not mainhand)) and not UnitHasVehicleUI("player") then
