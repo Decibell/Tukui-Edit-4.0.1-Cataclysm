@@ -42,15 +42,15 @@ end
 function TukuiDB.Scale(x) return scale(x) end
 TukuiDB.mult = mult
 
---------------------------------------------------------------
--- Textures
---------------------------------------------------------------
+
+----- [[    Textures    ]] -----
 
 local media = TukuiCF["media"]
+local theme_texture = TukuiCF.theme.UI_Texture
 
 local textures = {
 	normbg = {
-		bgFile = media.blank,
+		bgFile = theme_texture,
 		edgeFile = media.blank,
 		tile = false,
 		tileSize = 0,
@@ -59,7 +59,7 @@ local textures = {
 	},
 	
 	fadebg = {
-		bgFile = media.blank,
+		bgFile = media.blank, -- no we keep this as blank or it looks terrible
 		edgeFile = media.blank,
 		tile = false,
 		tileSize = 0,
@@ -79,13 +79,11 @@ local textures = {
 		insets = { left = mult, right = mult, top = mult, bottom = mult }
 	},
 	
-	overlay = media.normTex		
+	overlay = theme_texture		
 }
 
 
---------------------------------------------------------------
--- Style
---------------------------------------------------------------
+----- [[    Style    ]] -----
 
 function TukuiDB.StyleShadow(f)
 	if f.shadow then return end
@@ -131,9 +129,8 @@ function TukuiDB.StyleOuterBorder(f)
 	return f.oborder
 end
 
---------------------------------------------------------------
--- Skin
---------------------------------------------------------------
+
+----- [[    Skin    ]] -----
 
 function TukuiDB.SkinPanel(f)
 	f:SetBackdrop(textures.normbg)
@@ -155,9 +152,7 @@ function TukuiDB.SkinFadedPanel(f)
 end
 
 
---------------------------------------------------------------
--- Create
---------------------------------------------------------------
+----- [[    Create    ]] -----
 
 function TukuiDB.CreateText(parent, font, size, flag, a1, p, a2, x, y)
 	local f = parent:CreateFontString(nil, "OVERLAY")
@@ -214,7 +209,6 @@ function TukuiDB.SetTemplate(f)
 	f:SetBackdropColor(unpack(TukuiCF["media"].backdropcolor))
 	f:SetBackdropBorderColor(unpack(TukuiCF["media"].bordercolor))
 end
-
 
 function TukuiDB.Kill(object)
 	object.Show = TukuiDB.dummy
