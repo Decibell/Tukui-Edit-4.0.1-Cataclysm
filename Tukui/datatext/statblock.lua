@@ -83,7 +83,7 @@ memorystat:HookScript("OnUpdate", MemUpdate)
 
 memorystat:HookScript("OnEnter", function()
 	if not InCombatLockdown() then
-		GameTooltip:SetOwner(memorystat, "ANCHOR_BOTTOMRIGHT", -memorystat:GetWidth(), -(memorystat:GetHeight() - 17))
+		GameTooltip:SetOwner(memorystat, "ANCHOR_BOTTOMRIGHT", -memorystat:GetWidth(), -(memorystat:GetHeight() - 16))
 		GameTooltip:ClearLines()
 		GameTooltip:AddDoubleLine(cStart .. tukuilocal.datatext_totalmemusage .. cEnd,formatMem(Total), _, _, _, 1, 1, 1)
 		GameTooltip:AddLine(" ")
@@ -190,11 +190,14 @@ timestat:HookScript("OnMouseDown", function(self, btn)
 			EclipseSettings[3] = true
 			hrmode = "Enabled"
 		end
+	elseif btn == "MiddleButton" then
+		GameTimeFrame:Click()
 	end
 end)
 
 local int4 = 1
 local function TimeUpdate(self, t)
+	local pendingCalendarInvites = CalendarGetNumPendingInvites()
 	int4 = int4 - t
 	
 	if int4 < 0 then
@@ -204,27 +207,50 @@ local function TimeUpdate(self, t)
 			Min = date("%M")
 			
 			if EclipseSettings[3] == true then
-				ttext:SetText(cStart .. "L: |r" .. Hr24 .. ":" .. Min)
+				if pendingCalendarInvites > 0 then
+					ttext:SetText(cStart .. "L: |r" .. "|cffFF0000" .. Hr24 .. ":" .. Min)
+				else
+					ttext:SetText(cStart .. "L: |r" .. Hr24 .. ":" .. Min)
+				end
 			else
 				if Hr24>=12 then
-					ttext:SetText(cStart .. "L: |r" .. Hr .. ":" .. Min .. cStart .. " pm|r")
+					if pendingCalendarInvites > 0 then
+							ttext:SetText(cStart .. "L: |r" .. "|cffFF0000" .. Hr .. ":" .. Min .. cStart .. " pm|r")
+						else
+							ttext:SetText(cStart .. "L: |r" .. Hr .. ":" .. Min .. cStart .. " pm|r")
+						end
 				else
-					ttext:SetText(cStart .. "L: |r" .. Hr .. ":" .. Min .. cStart .. " am|r")
+					if pendingCalendarInvites > 0 then
+						ttext:SetText(cStart .. "L: |r" .. "|cffFF0000" .. Hr .. ":" .. Min .. cStart .. " am|r")
+					else
+						ttext:SetText(cStart .. "L: |r" .. Hr .. ":" .. Min .. cStart .. " am|r")
+					end
 				end
-			end
-			
+			end	
 		else
 			local Hr, Min = GetGameTime()
 			if Min<10 then Min = "0"..Min end
 			if EclipseSettings[3] == true then
-				ttext:SetText(cStart .. "S: |r" .. Hr .. ":" .. Min .. cStart)
+				if pendingCalendarInvites > 0 then
+					ttext:SetText(cStart .. "S: |r" .. "|cffFF0000" .. Hr .. ":" .. Min)
+				else
+					ttext:SetText(cStart .. "S: |r" .. Hr .. ":" .. Min)
+				end
 			else
 				if Hr>=12 then
 					if Hr>12 then Hr = Hr-12 end
-					ttext:SetText(cStart .. "S: |r" .. Hr .. ":" .. Min .. cStart .. " pm|r")
+					if pendingCalendarInvites > 0 then
+						ttext:SetText(cStart .. "S: |r" .. "|cffFF0000" .. Hr .. ":" .. Min .. cStart .. " pm|r")
+					else
+						ttext:SetText(cStart .. "S: |r" .. Hr .. ":" .. Min .. cStart .. " pm|r")
+					end
 				else
 					if Hr == 0 then Hr = 12 end
-					ttext:SetText(cStart .. "S: |r" .. Hr .. ":" .. Min .. cStart .. " am|r")
+					if pendingCalendarInvites > 0 then
+						ttext:SetText(cStart .. "S: |r" .. "|cffFF0000" .. Hr .. ":" .. Min .. cStart .. " am|r")
+					else
+						ttext:SetText(cStart .. "S: |r" .. Hr .. ":" .. Min .. cStart .. " am|r")
+					end
 				end
 			end
 		end
@@ -238,12 +264,43 @@ timestat:HookScript("OnUpdate", TimeUpdate)
 TimeUpdate(timestat, 10)
 
 timestat:HookScript("OnEnter", function()
-	GameTooltip:SetOwner(timestat, "ANCHOR_BOTTOMRIGHT", -timestat:GetWidth(), -(timestat:GetHeight() - 17))
+	GameTooltip:SetOwner(timestat, "ANCHOR_BOTTOMRIGHT", -timestat:GetWidth(), -(timestat:GetHeight() - 16))
 	GameTooltip:ClearLines()
-	GameTooltip:AddDoubleLine("Extra Time: ")
+	
+	if not EclipseSettings[1] == true then
+		Hr24 = tonumber(date("%H"))
+		Hr = tonumber(date("%I"))
+		Min = date("%M")
+		
+		if EclipseSettings[3] == true then
+			GameTooltip:AddDoubleLine(tukuilocal.datatext_localtime, Hr24 .. ":" .. Min)
+		else
+			if Hr24>=12 then
+				GameTooltip:AddDoubleLine(tukuilocal.datatext_localtime, Hr .. ":" .. Min .. " pm|r")
+			else
+				GameTooltip:AddDoubleLine(tukuilocal.datatext_localtime, Hr .. ":" .. Min .. " am|r")
+			end
+		end	
+	else
+		local Hr, Min = GetGameTime()
+		if Min<10 then Min = "0"..Min end
+		if EclipseSettings[3] == true then
+			GameTooltip:AddDoubleLine(tukuilocal.datatext_servertime, Hr .. ":" .. Min)
+		else
+			if Hr>=12 then
+				if Hr>12 then Hr = Hr-12 end
+				GameTooltip:AddDoubleLine(tukuilocal.datatext_servertime, Hr .. ":" .. Min .. " pm|r")
+			else
+				if Hr == 0 then Hr = 12 end
+				GameTooltip:AddDoubleLine(tukuilocal.datatext_servertime, Hr .. ":" .. Min .. " am|r")
+			end
+		end
+	end
+	
 	GameTooltip:AddLine" "
-	GameTooltip:AddLine("Right-click to choose between local or game time.")
-	GameTooltip:AddLine("Left-click to switch time formats: 24H or AM/PM.")
+	GameTooltip:AddDoubleLine("Right-click:", "Local or Server Time")
+	GameTooltip:AddDoubleLine("Left-click:", "Format 24H or AM/PM")
+	GameTooltip:AddDoubleLine("Middle-click:", "Show Calender")
 	
 
 	GameTooltip:Show()
