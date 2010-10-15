@@ -68,15 +68,13 @@ function TukuiDB.PP(p, obj)
 	
 	if TukuiCF["actionbar"].split_bar then
 		if p == 10 then
-			obj:SetHeight(leftsplit:GetHeight())
+			obj:SetHeight(leftsplit:GetHeight() - 10)
 			obj:SetWidth(leftsplit:GetWidth() - 15)
-			obj:SetPoint('TOP', leftsplit)
-			obj:SetPoint('BOTTOM', leftsplit)
+			obj:SetPoint('CENTER', leftsplit)
 		elseif p == 11 then
-			obj:SetHeight(rightsplit:GetHeight())
+			obj:SetHeight(rightsplit:GetHeight() - 10)
 			obj:SetWidth(rightsplit:GetWidth() - 15)
-			obj:SetPoint('TOP', rightsplit)
-			obj:SetPoint('BOTTOM', rightsplit)
+			obj:SetPoint('CENTER', rightsplit)
 		end
 	end
 end

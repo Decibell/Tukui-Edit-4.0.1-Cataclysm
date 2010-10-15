@@ -10,7 +10,7 @@ if TukuiCF["datatext"].mem and TukuiCF["datatext"].mem > 0 then
 	local colorme = string.format("%02x%02x%02x", 1*255, 1*255, 1*255)
 
 	local Text  = TukuiDataLeft:CreateFontString(nil, "OVERLAY")
-	Text:SetFont(TukuiCF["media"].pixelfont, 8, "MONOCHROMEOUTLINE")
+	Text:SetFont(TukuiCF.theme.DATA_Font, TukuiCF.theme.DATA_FSize, TukuiCF.theme.DATA_FFlag)
 	TukuiDB.PP(TukuiCF["datatext"].mem, Text)
 
 	local function formatMem(memory, color)

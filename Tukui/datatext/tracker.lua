@@ -11,7 +11,7 @@ if TukuiCF["datatext"].tracker and TukuiCF["datatext"].tracker > 0 then
  	Stat:SetFrameLevel(3)
 
 	local Text  = TukuiDataLeft:CreateFontString(nil, "OVERLAY")
-	Text:SetFont(TukuiCF["media"].pixelfont, 8, "MONOCHROMEOUTLINE")
+	Text:SetFont(TukuiCF.theme.DATA_Font, TukuiCF.theme.DATA_FSize, TukuiCF.theme.DATA_FFlag)
 	Text:SetWidth(100)
 	TukuiDB.PP(TukuiCF["datatext"].tracker, Text)
 

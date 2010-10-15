@@ -9,7 +9,7 @@ if TukuiCF["datatext"].dur and TukuiCF["datatext"].dur > 0 then
 	Stat:SetFrameLevel(3)
 
 	local Text  = TukuiDataLeft:CreateFontString(nil, "OVERLAY")
-	Text:SetFont(TukuiCF["media"].pixelfont, 8, "MONOCHROMEOUTLINE")
+	Text:SetFont(TukuiCF.theme.DATA_Font, TukuiCF.theme.DATA_FSize, TukuiCF.theme.DATA_FFlag)
 	TukuiDB.PP(TukuiCF["datatext"].dur, Text)
 
 	local Total = 0

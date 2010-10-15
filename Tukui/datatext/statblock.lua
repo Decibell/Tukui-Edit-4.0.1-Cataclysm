@@ -5,7 +5,9 @@ TukuiDB.CreatePanel(memorystat, 60, TukuiDB.infoheight, "TOPLEFT", UIParent, "TO
 memorystat:EnableMouse(true)
 memorystat:SetFrameStrata("HIGH")
 
-memorystat.text = TukuiDB.CreateText(memorystat, TukuiCF["media"].pixelfont, 8, "MONOCHROMEOUTLINE", "CENTER", memorystat)
+local mtext  = memorystat:CreateFontString(nil, "OVERLAY")
+mtext:SetFont(TukuiCF.theme.DATA_Font, TukuiCF.theme.DATA_FSize, TukuiCF.theme.DATA_FFlag)
+mtext:SetPoint("CENTER")
 
 local colorme = string.format("%02x%02x%02x", 1*255, 1*255, 1*255)
 
@@ -65,8 +67,8 @@ local function RefreshMem(self)
 		memC = format("|cff32DC46 %s|r ", MEMORY_TEXT)
 	end
 	
-	memorystat.text:SetText(memC)
-	memorystat:SetWidth(memorystat.text:GetWidth() + 20)
+	mtext:SetText(memC)
+	memorystat:SetWidth(mtext:GetWidth() + 20)
 end
 
 local int = 10
@@ -106,8 +108,9 @@ MemUpdate(memorystat, 20)
 local fpsstat = CreateFrame("Frame", "TukuiFpsStats", UIParent)
 TukuiDB.CreatePanel(fpsstat, 60, TukuiDB.infoheight, "TOPLEFT", memorystat, "TOPLEFT", memorystat:GetWidth() + 3, 0)
 
-ftext = TukuiDB.CreateText(fpsstat, TukuiCF["media"].pixelfont, 8, "MONOCHROMEOUTLINE", "CENTER", fpsstat)
-fpsstat.text = ftext
+local ftext  = fpsstat:CreateFontString(nil, "OVERLAY")
+ftext:SetFont(TukuiCF.theme.DATA_Font, TukuiCF.theme.DATA_FSize, TukuiCF.theme.DATA_FFlag)
+ftext:SetPoint("CENTER")
 
 local int2 = 1
 local function FpsUpdate(self, t)
@@ -137,8 +140,9 @@ FpsUpdate(fpsstat, 10)
 local latencystat = CreateFrame("Frame", "TukuiLatencyStats", UIParent)
 TukuiDB.CreatePanel(latencystat, 60, TukuiDB.infoheight, "TOPLEFT", fpsstat, "TOPLEFT", fpsstat:GetWidth() + 3, 0)
 
-ltext = TukuiDB.CreateText(latencystat, TukuiCF["media"].pixelfont, 8, "MONOCHROMEOUTLINE", "CENTER", latencystat)
-latencystat.text = ltext
+local ltext  = latencystat:CreateFontString(nil, "OVERLAY")
+ltext:SetFont(TukuiCF.theme.DATA_Font, TukuiCF.theme.DATA_FSize, TukuiCF.theme.DATA_FFlag)
+ltext:SetPoint("CENTER")
 
 local int3 = 1
 local function LatencyUpdate(self, t)
@@ -170,8 +174,9 @@ TukuiDB.CreatePanel(timestat, 60, TukuiDB.infoheight, "TOPLEFT", latencystat, "T
 timestat:EnableMouse(true)
 timestat:RegisterForClicks("AnyDown")
 
-ttext = TukuiDB.CreateText(timestat, TukuiCF["media"].pixelfont, 8, "MONOCHROMEOUTLINE", "CENTER", timestat)
-timestat.text = ltext
+local ttext  = timestat:CreateFontString(nil, "OVERLAY")
+ttext:SetFont(TukuiCF.theme.DATA_Font, TukuiCF.theme.DATA_FSize, TukuiCF.theme.DATA_FFlag)
+ttext:SetPoint("CENTER")
 
 timestat:HookScript("OnMouseDown", function(self, btn)
 	if btn == "RightButton" then

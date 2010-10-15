@@ -8,8 +8,8 @@ if TukuiCF["datatext"].hps_text and TukuiCF["datatext"].hps_text > 0 then
 	local player_id = UnitGUID("player")
 	local actual_heals_total, cmbt_time = 0
  
-	htext  = TukuiDataLeft:CreateFontString(nil, "OVERLAY")
-	htext:SetFont(TukuiCF["media"].pixelfont, 8, "MONOCHROMEOUTLINE")
+	hText  = TukuiDataLeft:CreateFontString(nil, "OVERLAY")
+	hText:SetFont(TukuiCF.theme.DATA_Font, TukuiCF.theme.DATA_FSize, TukuiCF.theme.DATA_FFlag)
 	hText:SetText("0.0 ",tukuilocal.datatext_hps)
  
 	TukuiDB.PP(TukuiCF["datatext"].hps_text, hText)

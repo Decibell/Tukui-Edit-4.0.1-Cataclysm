@@ -6,7 +6,7 @@ local location = CreateFrame("Frame", "TukuiLocation", UIParent)
 TukuiDB.CreatePanel(location, 60, TukuiDB.infoheight, "TOP", UIParent, "TOP", 0, -8)
 
 local locationtext  = location:CreateFontString(nil, "LOW")
-locationtext:SetFont(TukuiCF["media"].pixelfont, 8, "MONOCHROMEOUTLINE")
+locationtext:SetFont(TukuiCF.theme.DATA_Font, TukuiCF.theme.DATA_FSize, TukuiCF.theme.DATA_FFlag)
 locationtext:SetPoint("CENTER", location)
  
 local function OnEvent(self, event)
@@ -46,11 +46,11 @@ if TukuiCF["datatext"].coords then
 	TukuiDB.CreatePanel(ycoords, 35, TukuiDB.infoheight, "LEFT", location, "RIGHT", 3, 0)
 
 	local xcoordstext = xcoords:CreateFontString(nil, "OVERLAY")
-	xcoordstext:SetFont(TukuiCF["media"].pixelfont, 8, "MONOCHROMEOUTLINE")
+	xcoordstext:SetFont(TukuiCF.theme.DATA_Font, TukuiCF.theme.DATA_FSize, TukuiCF.theme.DATA_FFlag)
 	xcoordstext:SetPoint("CENTER", xcoords)
 	
 	local ycoordstext  = ycoords:CreateFontString(nil, "OVERLAY")
-	ycoordstext:SetFont(TukuiCF["media"].pixelfont, 8, "MONOCHROMEOUTLINE")
+	ycoordstext:SetFont(TukuiCF.theme.DATA_Font, TukuiCF.theme.DATA_FSize, TukuiCF.theme.DATA_FFlag)
 	ycoordstext:SetPoint("CENTER", ycoords)
 
 	local ela,go = 0,false

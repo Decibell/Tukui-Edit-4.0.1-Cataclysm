@@ -5,7 +5,7 @@ if TukuiCF["datatext"].wintergrasp and TukuiCF["datatext"].wintergrasp > 0 then
  	Stat:SetFrameLevel(3)
 
 	local Text  = TukuiDataLeft:CreateFontString(nil, "OVERLAY")
-	Text:SetFont(TukuiCF["media"].pixelfont, 8, "MONOCHROMEOUTLINE")
+	Text:SetFont(TukuiCF.theme.DATA_Font, TukuiCF.theme.DATA_FSize, TukuiCF.theme.DATA_FFlag)
 	TukuiDB.PP(TukuiCF["datatext"].wintergrasp, Text)
 
 	local function Update(self)

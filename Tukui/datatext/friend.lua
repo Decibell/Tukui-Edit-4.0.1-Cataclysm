@@ -12,7 +12,7 @@ if TukuiCF["datatext"].friends and TukuiCF["datatext"].friends > 0 then
 	local ttsubh = {r=0.75,g=0.9,b=1}
 
 	local Text  = TukuiDataLeft:CreateFontString(nil, "OVERLAY")
-	Text:SetFont(TukuiCF["media"].pixelfont, 8, "MONOCHROMEOUTLINE")
+	Text:SetFont(TukuiCF.theme.DATA_Font, TukuiCF.theme.DATA_FSize, TukuiCF.theme.DATA_FFlag)
 	TukuiDB.PP(TukuiCF["datatext"].friends, Text)
 
 	local function Update(self, event)
