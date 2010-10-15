@@ -10,8 +10,8 @@
 	<Script file="local\spanish.lua"/>
 	<Script file="local\korean.lua"/>
 	
-	<Script file="config\config.lua"/>
 	<Script file="config\media.lua"/>
+	<Script file="config\config.lua"/>
 	
 	<Script file="modules\configui.lua"/>
 
@@ -83,6 +83,7 @@
 	<Script file="datatext\time.lua"/>
 	<Script file="datatext\location_coords.lua"/>
 	<Script file="datatext\hitrating.lua"/>
+	<Script file="datatext\wintergrasp.lua"/>
 	
 	<Script file="actionbars\Hide.lua"/>
 	<Script file="actionbars\Bar1.lua"/>
