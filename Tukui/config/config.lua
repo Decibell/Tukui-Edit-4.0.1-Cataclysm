@@ -5,7 +5,39 @@
 	["multisampleprotect"] = true,         -- i don't recommend this because of shitty border but, voila!
 }
 
+
+TukuiCF["theme"] = { -- trust me, there's a reason I'm doing this now, instead of later
+	["CHAT_Font"] = TukuiCF.media.font,
+	
+	["UF_Font"] = TukuiCF.media.pixelfont, -- controls all unitframe fonts
+	["UF_FSize"] = 12,
+	["UF_FFlag"] = "",
+	
+	["DATA_Font"] = TukuiCF.media.pixelfont, -- controls datatext font and chat tab font
+	["DATA_FSize"] = 12,
+	["DATA_FFlag"] = "", -- seriously I'm only doing this for pixel font because it looks better 
+	
+	["UI_Texture"] = TukuiCF.media.empath,
+	
+	["custom_hover"] = true,
+		["hover_color"] = { .8, .2, .2, .5 },
+}
+
+-- need to move this dumbass
+if TukuiCF.theme.UF_Font == TukuiCF.media.pixelfont then
+	TukuiCF.theme.UF_FSize = 8
+	TukuiCF.theme.UF_FFlag = "MONOCHROMEOUTLINE"
+end
+
+if TukuiCF.theme.DATA_Font == TukuiCF.media.pixelfont then
+	TukuiCF.theme.DATA_FSize = 8
+	TukuiCF.theme.DATA_FFlag = "MONOCHROMEOUTLINE"
+end
+
+
 TukuiCF["unitframes"] = {
+	["V3_Style"] = true, --
+
 	-- general options
 	["enable"] = true,                     -- do i really need to explain this?
 	["enemyhcolor"] = false,               -- enemy target (players) color by hostility, very useful for healer.
@@ -118,14 +150,15 @@ TukuiCF["datatext"] = {
 	["haste"] = 9,                         -- show your haste rating on panels.
 	["crit"] = 8,                          -- show your crit rating on panels.
 	["avd"] = 0,                           -- show your current avoidance against the level of the mob your targeting
-	["armor"] = 11,                         -- show your armor value against the level mob you are currently targeting
+	["armor"] = 0,                         -- show your armor value against the level mob you are currently targeting
 	
 	["location"] = true,
 		["coords"] = true,
 	
 	["stat_block"] = true, 			-- new 4 block system in top-right screen for important datatexts only (time/mem/latency/fps)
 	
-	["hitrating"] = 10,
+	["hitrating"] = 11,
+	["wintergrasp"] = 10,
 	
 	
 	
