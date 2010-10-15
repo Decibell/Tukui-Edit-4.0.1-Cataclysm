@@ -243,8 +243,8 @@ local function Shared(self, unit)
 				self.DruidMana = DruidMana
 				
 				local eclipseBar = CreateFrame('Frame', nil, self)
-				eclipseBar:SetPoint("BOTTOMLEFT", hBorder, "TOPLEFT", 6, -2)
-				eclipseBar:SetSize((self:GetAttribute("initial-width") - 10), TukuiDB.Scale(4))
+				eclipseBar:SetPoint("BOTTOMLEFT", hBorder, "TOPLEFT", 2, 5)
+				eclipseBar:SetSize((self:GetAttribute("initial-width") - 2), TukuiDB.Scale(4))
 				eclipseBar:SetFrameStrata("MEDIUM")
 				eclipseBar:SetFrameLevel(8)
 				eclipseBar:SetScript("OnShow", function() TukuiDB.EclipseDisplay(self, false) end)
@@ -290,9 +290,9 @@ local function Shared(self, unit)
 					rB[i] = CreateFrame("Frame", nil, self)
 					rB[i]:SetFrameLevel(health:GetFrameLevel() + 1)
 					rB[i]:SetHeight(8)
-					rB[i]:SetWidth((self:GetAttribute("initial-width") - 25) / 6)
+					rB[i]:SetWidth((self:GetAttribute("initial-width") - 13) / 6)
 					if (i == 1) then
-						rB[i]:SetPoint("BOTTOMLEFT", hBorder, "TOPLEFT", 6, -4)
+						rB[i]:SetPoint("BOTTOMLEFT", hBorder, "TOPLEFT", 0, 3)
 					else
 						rB[i]:SetPoint("TOPLEFT", rB[i-1], "TOPRIGHT", 3, 0)
 					end
@@ -320,11 +320,11 @@ local function Shared(self, unit)
 					totemFrame[i] = CreateFrame("Frame", nil, self)
 					totemFrame[i]:SetFrameLevel(health:GetFrameLevel() + 1)
 					totemFrame[i]:SetHeight(8)
-					totemFrame[i]:SetWidth((self:GetAttribute("initial-width") - 20) / 4)
+					totemFrame[i]:SetWidth((self:GetAttribute("initial-width") - 7) / 4)
 					TukuiDB.SkinPanel(totemFrame[i])
 
 					if i == 1 then
-						totemFrame[i]:SetPoint("BOTTOMLEFT", hBorder, "TOPLEFT", 6, -4)
+						totemFrame[i]:SetPoint("BOTTOMLEFT", hBorder, "TOPLEFT", 0, 3)
 					else
 						totemFrame[i]:SetPoint("TOPLEFT", totemFrame[i-1], "TOPRIGHT", 3, 0)
 					end
@@ -355,11 +355,11 @@ local function Shared(self, unit)
 					barFrame[i] = CreateFrame("Frame", nil, self)
 					barFrame[i]:SetFrameLevel(health:GetFrameLevel() + 1)
 					barFrame[i]:SetHeight(8)
-					barFrame[i]:SetWidth((self:GetAttribute("initial-width") - 4) / 5)
+					barFrame[i]:SetWidth((self:GetAttribute("initial-width") - 4) / 3)
 					TukuiDB.SkinPanel(barFrame[i])
 					
 					if i == 1 then
-						barFrame[i]:SetPoint("BOTTOMLEFT", hBorder, "TOPLEFT", 10, -4)
+						barFrame[i]:SetPoint("BOTTOMLEFT", hBorder, "TOPLEFT", 0, 3)
 					else
 						barFrame[i]:SetPoint("TOPLEFT", barFrame[i-1], "TOPRIGHT", 3, 0)
 					end
@@ -397,11 +397,10 @@ local function Shared(self, unit)
 			local debuffs = CreateFrame("Frame", nil, self)
 			
 			if (TukuiDB.myclass == "SHAMAN" or TukuiDB.myclass == "DEATHKNIGHT" or TukuiDB.myclass == "PALADIN" or TukuiDB.myclass == "WARLOCK") and (db.playerauras) and (unit == "player") then
-				buffs:SetPoint("TOPLEFT", self, "TOPLEFT", -1, 30)
+				buffs:SetPoint("TOPLEFT", self, "TOPLEFT", -1, 37)
 			else
 				buffs:SetPoint("TOPLEFT", self, "TOPLEFT", -1, 26)
 			end
-			
 
 			buffs:SetHeight(22)
 			buffs:SetWidth(self:GetAttribute('initial-width'))

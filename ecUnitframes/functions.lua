@@ -446,7 +446,7 @@ do
 		end
 		
 		if eb:IsShown() then
-			if self.Buffs then self.Buffs:SetPoint("TOPLEFT", self, "TOPLEFT", -1, 30) end
+			if self.Buffs then self.Buffs:SetPoint("TOPLEFT", self, "TOPLEFT", -1, 37) end
 		else
 			if self.Buffs then self.Buffs:SetPoint("TOPLEFT", self, "TOPLEFT", -1, 26) end
 		end
