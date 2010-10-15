@@ -180,8 +180,8 @@ local function SetupChat(self)
 		local frame = _G[format("ChatFrame%s", i)]
 		SetChatStyle(frame)
 		FCFTab_UpdateColors(_G["ChatFrame"..i.."Tab"], false) 
-		_G["ChatFrame"..i.."TabText"]:SetFont(TukuiCF["media"].pixelfont, 8)
-		_G["ChatFrame"..i]:SetFont(TukuiCF["media"].font, 12)
+		_G["ChatFrame"..i.."TabText"]:SetFont(TukuiCF.theme.DATA_Font, TukuiCF.theme.DATA_FSize)
+		_G["ChatFrame"..i]:SetFont(TukuiCF.theme.CHAT_Font, 12)
 	end
 	
 	-- Remember last channel
