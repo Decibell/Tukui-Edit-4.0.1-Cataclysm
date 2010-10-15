@@ -7,9 +7,9 @@ if TukuiDB.myclass == "SHAMAN" then
 		MultiCastActionBarFrame:SetScript("OnUpdate", nil)
 		MultiCastActionBarFrame:SetScript("OnShow", nil)
 		MultiCastActionBarFrame:SetScript("OnHide", nil)
-		MultiCastActionBarFrame:SetParent(TukuiShiftBar)
+		MultiCastActionBarFrame:SetParent(DummyShiftBar)
 		MultiCastActionBarFrame:ClearAllPoints()
-		MultiCastActionBarFrame:SetPoint("BOTTOMLEFT", TukuiShiftBar, 0, TukuiDB.Scale(23))
+		MultiCastActionBarFrame:SetPoint("TOPLEFT", TukuiShiftBar, "TOPRIGHT", 3, 6)
  
 		for i = 1, 4 do
 			local b = _G["MultiCastSlotButton"..i]
