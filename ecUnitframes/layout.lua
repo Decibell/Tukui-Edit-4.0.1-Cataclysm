@@ -251,7 +251,7 @@ local function Shared(self, unit)
 				eclipseBar:SetScript("OnUpdate", function() TukuiDB.EclipseDisplay(self, true) end) -- just forcing 1 update on login for buffs/shadow/etc.
 				eclipseBar:SetScript("OnHide", function() TukuiDB.EclipseDisplay(self, false) end)
 				
-				local fuckthis = CreateFrame("Frame", nil, self)
+				local fuckthis = CreateFrame("Frame", nil, eclipseBar)
 				fuckthis:SetPoint("TOPLEFT", eclipseBar, "TOPLEFT", -2, 2)
 				fuckthis:SetPoint("BOTTOMRIGHT", eclipseBar, "BOTTOMRIGHT", 2, -2)
 				TukuiDB.SkinPanel(fuckthis)

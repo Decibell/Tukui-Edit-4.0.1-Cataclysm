@@ -446,17 +446,9 @@ do
 		end
 		
 		if eb:IsShown() then
-			if TukuiDB.lowversion then
-				if self.Buffs then self.Buffs:SetPoint("TOPLEFT", self, "TOPLEFT", 0, 34) end
-			else
-				if self.Buffs then self.Buffs:SetPoint("TOPLEFT", self, "TOPLEFT", 0, 38) end
-			end				
+			if self.Buffs then self.Buffs:SetPoint("TOPLEFT", self, "TOPLEFT", -1, 30) end
 		else
-			if TukuiDB.lowversion then
-				if self.Buffs then self.Buffs:SetPoint("TOPLEFT", self, "TOPLEFT", 0, 26) end
-			else
-				if self.Buffs then self.Buffs:SetPoint("TOPLEFT", self, "TOPLEFT", 0, 30) end
-			end
+			if self.Buffs then self.Buffs:SetPoint("TOPLEFT", self, "TOPLEFT", -1, 26) end
 		end
 	end
 
