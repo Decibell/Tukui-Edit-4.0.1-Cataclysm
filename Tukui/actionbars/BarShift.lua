@@ -4,7 +4,7 @@ if not TukuiCF["actionbar"].enable == true then return end
 -- Setup Shapeshift Bar, using Blizzard SS bar.
 ---------------------------------------------------------------------------
 
-local DummyShift = CreateFrame("Frame",nil,UIParent)
+local DummyShift = CreateFrame("Frame","DummyShiftBar",UIParent)
 local TukuiShift = CreateFrame("Frame","TukuiShiftBar",UIParent)
 if TukuiCF["actionbar"].vertical_shapeshift then
 	TukuiDB.CreatePanel(TukuiShift, TukuiDB.stancebuttonsize, TukuiDB.stancebuttonsize / 2, "TOPLEFT", 8, -40)
