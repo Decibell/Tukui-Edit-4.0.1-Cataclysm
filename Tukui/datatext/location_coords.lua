@@ -47,11 +47,11 @@ if TukuiCF["datatext"].coords then
 
 	local xcoordstext = xcoords:CreateFontString(nil, "OVERLAY")
 	xcoordstext:SetFont(TukuiCF.theme.DATA_Font, TukuiCF.theme.DATA_FSize, TukuiCF.theme.DATA_FFlag)
-	xcoordstext:SetPoint("CENTER", xcoords)
+	xcoordstext:SetPoint("CENTER", xcoords, "CENTER", 1, 0)
 	
 	local ycoordstext  = ycoords:CreateFontString(nil, "OVERLAY")
 	ycoordstext:SetFont(TukuiCF.theme.DATA_Font, TukuiCF.theme.DATA_FSize, TukuiCF.theme.DATA_FFlag)
-	ycoordstext:SetPoint("CENTER", ycoords)
+	ycoordstext:SetPoint("CENTER", ycoords, "CENTER", 1, 0)
 
 	local ela,go = 0,false
 
@@ -79,13 +79,13 @@ if TukuiCF["datatext"].coords then
 			else
 				yt = y
 			end
-			xcoordstext:SetText("x: " .. xt)
-			ycoordstext:SetText("y: " .. yt)
+			xcoordstext:SetText(xt)
+			ycoordstext:SetText(yt)
 			
 			xcoords:SetAlpha(1)
 			ycoords:SetAlpha(1)
-			xcoords:SetWidth(xcoordstext:GetWidth() + 24)
-			ycoords:SetWidth(ycoordstext:GetWidth() + 24)
+			xcoords:SetWidth(xcoordstext:GetWidth() + 20)
+			ycoords:SetWidth(ycoordstext:GetWidth() + 20)
 		end
 		ela = .2
 	end

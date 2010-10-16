@@ -3,7 +3,6 @@
 local memorystat = CreateFrame("Frame", "TukuiMemoryStats", UIParent)
 TukuiDB.CreatePanel(memorystat, 60, TukuiDB.infoheight, "TOPLEFT", UIParent, "TOPLEFT", 8, -8)
 memorystat:EnableMouse(true)
-memorystat:SetFrameStrata("HIGH")
 
 local mtext  = memorystat:CreateFontString(nil, "OVERLAY")
 mtext:SetFont(TukuiCF.theme.DATA_Font, TukuiCF.theme.DATA_FSize, TukuiCF.theme.DATA_FFlag)
