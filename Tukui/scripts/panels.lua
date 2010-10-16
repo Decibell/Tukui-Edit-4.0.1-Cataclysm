@@ -16,6 +16,7 @@ if TukuiCF["actionbar"].rightbars_vh then
 else
 	TukuiCF["panels"].tinfowidth = (TukuiDB.buttonsize * 12) + (TukuiDB.buttonspacing * 11) -- force this if vertical rightbars are disabled so people don't go "OMG ACTION BUTTONS DON'T FIT SIDE/CHAT PANELS"
 end
+
 TukuiDB.infoheight = 19
 
 
@@ -262,61 +263,4 @@ local iright = CreateFrame("Frame", "TukuiInfoRight", barbg)
 	-- bgframe:SetFrameStrata("LOW")
 	-- bgframe:SetFrameLevel(0)
 	-- bgframe:EnableMouse(true)
-	-- local function OnEvent(self, event)
-		-- if event == "PLAYER_ENTERING_WORLD" then
-			-- inInstance, instanceType = IsInInstance()
-			-- if inInstance and (instanceType == "pvp") then
-				-- bgframe:Show()
-			-- else
-				-- bgframe:Hide()
-			-- end
-		-- end
-	-- end
-	-- bgframe:SetScript("OnEnter", function(self)
-	-- local numScores = GetNumBattlefieldScores()
-		-- for i=1, numScores do
-			-- name, killingBlows, honorableKills, deaths, honorGained, faction, race, class, classToken, damageDone, healingDone, bgRating, ratingChange = GetBattlefieldScore(i)
-			-- if ( name ) then
-				-- if ( name == UnitName("player") ) then
-					-- GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT", 0, TukuiDB.Scale(4));
-					-- GameTooltip:ClearLines()
-					-- GameTooltip:SetPoint("BOTTOM", self, "TOP", 0, TukuiDB.Scale(1))
-					-- GameTooltip:ClearLines()
-					-- GameTooltip:AddLine(tukuilocal.datatext_ttstatsfor.."[|cffCC0033"..name.."|r]")
-					-- GameTooltip:AddLine' '
-					-- GameTooltip:AddDoubleLine(tukuilocal.datatext_ttkillingblows, killingBlows,1,1,1)
-					-- GameTooltip:AddDoubleLine(tukuilocal.datatext_tthonorkills, honorableKills,1,1,1)
-					-- GameTooltip:AddDoubleLine(tukuilocal.datatext_ttdeaths, deaths,1,1,1)
-					-- GameTooltip:AddDoubleLine(tukuilocal.datatext_tthonorgain, format('%d', honorGained),1,1,1)
-					-- GameTooltip:AddDoubleLine(tukuilocal.datatext_ttdmgdone, damageDone,1,1,1)
-					-- GameTooltip:AddDoubleLine(tukuilocal.datatext_tthealdone, healingDone,1,1,1)
-					-- Add extra statistics to watch based on what BG you are in.
-					-- if GetRealZoneText() == "Arathi Basin" then --
-						-- GameTooltip:AddDoubleLine(tukuilocal.datatext_basesassaulted,GetBattlefieldStatData(i, 1),1,1,1)
-						-- GameTooltip:AddDoubleLine(tukuilocal.datatext_basesdefended,GetBattlefieldStatData(i, 2),1,1,1)
-					-- elseif GetRealZoneText() == "Warsong Gulch" then --
-						-- GameTooltip:AddDoubleLine(tukuilocal.datatext_flagscaptured,GetBattlefieldStatData(i, 1),1,1,1)
-						-- GameTooltip:AddDoubleLine(tukuilocal.datatext_flagsreturned,GetBattlefieldStatData(i, 2),1,1,1)
-					-- elseif GetRealZoneText() == "Eye of the Storm" then --
-						-- GameTooltip:AddDoubleLine(tukuilocal.datatext_flagscaptured,GetBattlefieldStatData(i, 1),1,1,1)
-					-- elseif GetRealZoneText() == "Alterac Valley" then
-						-- GameTooltip:AddDoubleLine(tukuilocal.datatext_graveyardsassaulted,GetBattlefieldStatData(i, 1),1,1,1)
-						-- GameTooltip:AddDoubleLine(tukuilocal.datatext_graveyardsdefended,GetBattlefieldStatData(i, 2),1,1,1)
-						-- GameTooltip:AddDoubleLine(tukuilocal.datatext_towersassaulted,GetBattlefieldStatData(i, 3),1,1,1)
-						-- GameTooltip:AddDoubleLine(tukuilocal.datatext_towersdefended,GetBattlefieldStatData(i, 4),1,1,1)
-					-- elseif GetRealZoneText() == "Strand of the Ancients" then
-						-- GameTooltip:AddDoubleLine(tukuilocal.datatext_demolishersdestroyed,GetBattlefieldStatData(i, 1),1,1,1)
-						-- GameTooltip:AddDoubleLine(tukuilocal.datatext_gatesdestroyed,GetBattlefieldStatData(i, 2),1,1,1)
-					-- elseif GetRealZoneText() == "Isle of Conquest" then
-						-- GameTooltip:AddDoubleLine(tukuilocal.datatext_basesassaulted,GetBattlefieldStatData(i, 1),1,1,1)
-						-- GameTooltip:AddDoubleLine(tukuilocal.datatext_basesdefended,GetBattlefieldStatData(i, 2),1,1,1)
-					-- end					
-					-- GameTooltip:Show()
-				-- end
-			-- end
-		-- end
-	-- end) 
-	-- bgframe:SetScript("OnLeave", function(self) GameTooltip:Hide() end)
-	-- bgframe:RegisterEvent("PLAYER_ENTERING_WORLD")
-	-- bgframe:SetScript("OnEvent", OnEvent)
 -- end

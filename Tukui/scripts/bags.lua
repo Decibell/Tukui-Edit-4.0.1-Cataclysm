@@ -699,7 +699,8 @@ function Stuffing:Layout(lb)
 			b.iconTex = iconTex
 
 			TukuiDB.SetTemplate(b.frame)
-			TukuiDB.StyleButton(b.frame)
+			b.frame:SetBackdropColor(0, 0, 0, 0) -- we just need border with SetTemplate, not the backdrop. Hopefully this will fix invisible item that some users have.
+			TukuiDB.StyleButton(b.frame, false)
 			
 			idx = idx + 1
 		end
@@ -922,11 +923,6 @@ function Stuffing:PLAYER_ENTERING_WORLD()
 	-- this is just a reskin of Blizzard key bag to fit Tukui
 	-- hooking OnShow because sometime key max slot changes.
 	ContainerFrame1:HookScript("OnShow", function(self)
-		local keybackdrop = CreateFrame("Frame", nil, self)
-		keybackdrop:SetPoint("TOPLEFT", TukuiDB.Scale(9), TukuiDB.Scale(-40))
-		keybackdrop:SetPoint("BOTTOMLEFT", 0, 0)
-		keybackdrop:SetSize(TukuiDB.Scale(179),TukuiDB.Scale(215))
-		TukuiDB.SetTemplate(keybackdrop)
 		ContainerFrame1CloseButton:Hide()
 		ContainerFrame1Portrait:Hide()
 		ContainerFrame1Name:Hide()
@@ -939,14 +935,17 @@ function Stuffing:PLAYER_ENTERING_WORLD()
 			local t = _G["ContainerFrame1Item"..i.."IconTexture"]
 			slot:SetPushedTexture("")
 			slot:SetNormalTexture("")
+			-- slot:SetSize(29, 29) -- set keys to be the same size as the bag item slots, technically it's 1 pixel smaller than the bag slots.
 			t:SetTexCoord(.08, .92, .08, .92)
 			t:SetPoint("TOPLEFT", slot, TukuiDB.Scale(2), TukuiDB.Scale(-2))
 			t:SetPoint("BOTTOMRIGHT", slot, TukuiDB.Scale(-2), TukuiDB.Scale(2))
 			TukuiDB.SetTemplate(slot)
+			slot:SetBackdropColor(0, 0, 0, 0)
 			TukuiDB.StyleButton(slot, false)
 		end
+		TukuiDB.SkinFadedPanel(self)
 		self:ClearAllPoints()
-		self:SetPoint("BOTTOMRIGHT", StuffingFrameBags, "BOTTOMLEFT", TukuiDB.Scale(1), TukuiDB.Scale(0))
+		self:SetPoint("BOTTOMRIGHT", StuffingFrameBags, "BOTTOMLEFT", TukuiDB.Scale(-3), TukuiDB.Scale(0))
 	end)
 end
 

@@ -42,7 +42,6 @@ TukuiSkin:SetScript("OnEvent", function(self, event, addon)
 			"VideoOptionsFrame",
 			"AudioOptionsFrame",
 			"ReadyCheckFrame",
-			"GhostFrameContentsFrame",
 		}
 
 		local insetskins = {			
@@ -57,7 +56,10 @@ TukuiSkin:SetScript("OnEvent", function(self, event, addon)
 			"AutoCompleteBox",
 			"ColorPickerFrame",
 		}
-
+		
+		TukuiDB.SkinPanel(_G["GhostFrame"]) -- temp
+		SkinButton(_G["GhostFrame"]) -- temp
+		
 		-- reskin popup buttons
 		for i = 1, 3 do
 			for j = 1, 3 do
@@ -184,10 +186,17 @@ TukuiSkin:SetScript("OnEvent", function(self, event, addon)
 		_G["GhostFrame"]:SetFrameStrata("HIGH")
 		_G["GhostFrame"]:SetFrameLevel(10)
 		_G["GhostFrame"]:ClearAllPoints()
-		_G["GhostFrame"]:SetPoint("TOP", Minimap, "BOTTOM", 0, TukuiDB.Scale(-25))
+		_G["GhostFrame"]:SetPoint("TOPLEFT", TukuiMinimap, "BOTTOMLEFT", 0, TukuiDB.Scale(-3))
+		_G["GhostFrame"]:SetPoint("TOPRIGHT", TukuiMinimap, "BOTTOMRIGHT", 0, TukuiDB.Scale(-3))
+		_G["GhostFrame"]:SetHeight(35)
 		_G["GhostFrameContentsFrameIcon"]:SetAlpha(0)
 		_G["GhostFrameContentsFrameText"]:ClearAllPoints()
 		_G["GhostFrameContentsFrameText"]:SetPoint("CENTER")
+		
+		_G["GhostFrame".."Left"]:SetTexture("") --
+		_G["GhostFrame".."Middle"]:SetTexture("") --
+		_G["GhostFrame".."Right"]:SetTexture("") --
+ 
 		_G["PlayerPowerBarAlt"]:HookScript("OnShow", function(self) self:ClearAllPoints() self:SetPoint("TOP", 0, -12) end)
 	end
 	

@@ -35,8 +35,15 @@ if TukuiCF.theme.DATA_Font == TukuiCF.media.pixelfont then
 end
 
 
+-- temp shit for classtimer
+TukuiCF["ct"] = {
+	["classtimers"] = true,
+		["classcolored"] = true,
+		["icons"] = true,
+}
+
 TukuiCF["unitframes"] = {
-	["V3_Style"] = true, --
+	["V3_Style"] = false, --
 
 	-- general options
 	["enable"] = true,                     -- do i really need to explain this?
@@ -175,7 +182,7 @@ TukuiCF["chat"] = {
 
 TukuiCF["panels"] = {
 	["tinfowidth"] = 345, 					
-	-- ["shadows"] = true, 					-- doesn't work yet
+	["shadows"] = true, 					
 	
 	["bottom_panels"] = true,
 }

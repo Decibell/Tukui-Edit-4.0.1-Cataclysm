@@ -88,7 +88,7 @@ do
 				health.value:SetText("|cffD7BEA5"..tukuilocal.unitframes_ouf_ghost.."|r")
 			end
 		else
-			local r, g, b
+			-- local r, g, b
 			
 			-- overwrite healthbar color for enemy player (a tukui option if enabled), target vehicle/pet too far away returning unitreaction nil and friend unit not a player. (mostly for overwrite tapped for friendly)
 			-- I don't know if we really need to call TukuiCF["unitframes"].unicolor but anyway, it's safe this way.
@@ -139,13 +139,13 @@ do
 
 	TukuiDB.PostUpdateHealthRaid = function(health, unit, min, max)
 		if not UnitIsConnected(unit) or UnitIsDead(unit) or UnitIsGhost(unit) then
-			if not UnitIsConnected(unit) then
-				health.value:SetText("|cffD7BEA5"..tukuilocal.unitframes_ouf_offline.."|r")
-			elseif UnitIsDead(unit) then
-				health.value:SetText("|cffD7BEA5"..tukuilocal.unitframes_ouf_dead.."|r")
-			elseif UnitIsGhost(unit) then
-				health.value:SetText("|cffD7BEA5"..tukuilocal.unitframes_ouf_ghost.."|r")
-			end
+			-- if not UnitIsConnected(unit) then
+				-- health.value:SetText("|cffD7BEA5"..tukuilocal.unitframes_ouf_offline.."|r")
+			-- elseif UnitIsDead(unit) then
+				-- health.value:SetText("|cffD7BEA5"..tukuilocal.unitframes_ouf_dead.."|r")
+			-- elseif UnitIsGhost(unit) then
+				-- health.value:SetText("|cffD7BEA5"..tukuilocal.unitframes_ouf_ghost.."|r")
+			-- end
 		else
 			-- local r, g, b
 			
@@ -530,12 +530,12 @@ do
 		local threat = UnitThreatSituation(self.unit)
 		if (threat == 3) then
 			self.Health.border:SetBackdropBorderColor(.69,.31,.31,1)
-			if unit == "player" then
+			if self.Power and not unit == "pet" then
 				self.Power.border:SetBackdropBorderColor(.69,.31,.31,1)
 			end
 		else
 			self.Health.border:SetBackdropBorderColor(unpack(TukuiCF["media"].bordercolor))
-			if unit == "player" then
+			if self.Power and not unit == "pet" then
 				self.Power.border:SetBackdropBorderColor(unpack(TukuiCF["media"].bordercolor))
 			end
 		end 

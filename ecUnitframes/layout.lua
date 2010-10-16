@@ -8,7 +8,7 @@ local backdrop = {
 	insets = {top = -TukuiDB.mult, left = -TukuiDB.mult, bottom = -TukuiDB.mult, right = -TukuiDB.mult},
 }
 
------ [[	Local Variables	]] -----
+----- [[    Local Variables    ]] -----
 
 local media = TukuiCF["media"]
 local unitframes = TukuiCF["unitframes"]
@@ -20,7 +20,7 @@ local theme_texture = TukuiCF["theme"].UI_Texture
 local unitframes_style = TukuiCF["unitframes"].V3_Style
 
 
------ [[	Layout	]] -----
+----- [[    Layout    ]] -----
 
 local function Shared(self, unit)
 	self.colors = TukuiDB.oUF_colors
@@ -32,7 +32,7 @@ local function Shared(self, unit)
 	self.menu = TukuiDB.SpawnMenu
 
 	
-	----- [[	Player and Target ]] -----
+	----- [[    Player and Target    ]] -----
 	
 	if (unit == "player" or unit == "target") then
 		local health = CreateFrame("StatusBar", nil, self)
@@ -78,27 +78,29 @@ local function Shared(self, unit)
 		TukuiDB.SkinPanel(pBorder)
 		self.Power.border = pBorder
 
-		local panel = CreateFrame("Frame", nil, self)
-		TukuiDB.CreatePanel(panel, 1, 17, "BOTTOM", self, "BOTTOM", 0, 0)
-		panel:SetFrameLevel(2)
-		panel:SetFrameStrata("MEDIUM")
-		panel:ClearAllPoints()
-		panel:SetPoint("TOPLEFT", pBorder, "BOTTOMLEFT", 0, -3)
-		panel:SetPoint("TOPRIGHT", pBorder, "BOTTOMRIGHT", 0, -3)
-		self.panel = panel
-		if theme_font == TukuiCF.media.font then panel:SetHeight(18) end
-
+		if unitframes.V3_Style then
+			local panel = CreateFrame("Frame", nil, self)
+			TukuiDB.CreatePanel(panel, 1, 17, "BOTTOM", self, "BOTTOM", 0, 0)
+			panel:SetFrameLevel(2)
+			panel:SetFrameStrata("MEDIUM")
+			panel:ClearAllPoints()
+			panel:SetPoint("TOPLEFT", pBorder, "BOTTOMLEFT", 0, -3)
+			panel:SetPoint("TOPRIGHT", pBorder, "BOTTOMRIGHT", 0, -3)
+			self.panel = panel
+			if theme_font == TukuiCF.media.font then panel:SetHeight(18) end
+		end
+		
 		----- [[	Health and Power Colors  ]] -----
 		
 		health.frequentUpdates = true
 		power.frequentUpdates = true
 
-		if unitframes.showsmooth == true then
+		if unitframes.showsmooth then
 			health.Smooth = true
 			power.Smooth = true
 		end
 
-		if unitframes.classcolor == true then
+		if unitframes.classcolor then
 			health.colorTapping = true
 			health.colorDisconnected = true
 			health.colorReaction = true
@@ -156,7 +158,11 @@ local function Shared(self, unit)
 
 		----- [[    I set size like this, fuck new way!!    ]] -----
 		
-		self:SetAttribute('initial-height', ((health:GetHeight() + 4) + (power:GetHeight() + 4) + (panel:GetHeight()) + 6))
+		if unitframes.V3_Style then
+			self:SetAttribute('initial-height', ((health:GetHeight() + 4) + (power:GetHeight() + 4) + (panel:GetHeight()) + 6))
+		else
+			self:SetAttribute('initial-height', ((health:GetHeight() + 4) + (power:GetHeight() + 4) + 3))
+		end
 		self:SetAttribute('initial-width', TukuiDB.Scale(195))
 
 		

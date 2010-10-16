@@ -146,14 +146,16 @@ end
 
 oUF.TagEvents['Tukui:dead'] = 'UNIT_HEALTH'
 oUF.Tags['Tukui:dead'] = function(unit)
-	if UnitIsDeadOrGhost(unit) then
-		return tukuilocal.unitframes_ouf_deaddps
+	if UnitIsDead(unit) then
+		return "|cffff0000[D]|r"
+	elseif UnitIsGhost(unit) then
+		return "|cffff0000[G]|r"
 	end
 end
 
 oUF.TagEvents['Tukui:afk'] = 'PLAYER_FLAGS_CHANGED'
 oUF.Tags['Tukui:afk'] = function(unit)
 	if UnitIsAFK(unit) then
-		return CHAT_FLAG_AFK
+		return "|cffff0000[A]|r"
 	end
 end

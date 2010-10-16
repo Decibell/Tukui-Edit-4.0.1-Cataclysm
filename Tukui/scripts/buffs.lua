@@ -104,16 +104,18 @@ local function UpdateBuffAnchors()
 				end
 				aboveBuff = buff;
 			elseif ( index == 1 ) then
-				local mainhand, _, _, offhand, _, _ = GetWeaponEnchantInfo()
-				if mainhand and offhand and not UnitHasVehicleUI("player") then
+				local mainhand, _, _, offhand, _, _, hand3 = GetWeaponEnchantInfo()
+				if (mainhand and offhand and hand3) and not UnitHasVehicleUI("player") then
+					buff:SetPoint("RIGHT", TempEnchant3, "LEFT", TukuiDB.Scale(-3), 0)
+				elseif ((mainhand and offhand) or (mainhand and hand3) or (offhand and hand3)) and not UnitHasVehicleUI("player") then
 					buff:SetPoint("RIGHT", TempEnchant2, "LEFT", TukuiDB.Scale(-3), 0)
-				elseif ((mainhand and not offhand) or (offhand and not mainhand)) and not UnitHasVehicleUI("player") then
+				elseif ((mainhand and not offhand and not hand3) or (offhand and not mainhand and not hand3) or (hand3 and not mainhand and not offhand)) and not UnitHasVehicleUI("player") then
 					buff:SetPoint("RIGHT", TempEnchant1, "LEFT", TukuiDB.Scale(-3), 0)
 				else
 					buff:SetPoint("TOPRIGHT", TukuiMinimap, "TOPLEFT", TukuiDB.Scale(-3), 0)
 				end
 			else
-				buff:SetPoint("RIGHT", previousBuff, "LEFT", TukuiDB.Scale(-3), 0)
+				buff:SetPoint("RIGHT", previousBuff, "LEFT", TukuiDB.Scale(-4), 0)
 			end
 			previousBuff = buff
 		end		

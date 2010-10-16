@@ -58,7 +58,7 @@ local function setup()
 	WatchFrameTitle:Hide()
 	WatchFrameTitle.Show = TukuiDB.dummy
 	WatchFrameCollapseExpandButton:Hide()
-	WatchFrameCollapseExpandButton.Show = TukuiDB.dummy
+	WatchFrameCollapseExpandButton.Disable = TukuiDB.dummy
 end
 
 TukuiWatchFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
