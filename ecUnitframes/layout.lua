@@ -78,7 +78,7 @@ local function Shared(self, unit)
 		TukuiDB.SkinPanel(pBorder)
 		self.Power.border = pBorder
 
-		if unitframes.V3_Style then
+		if unitframes_style then
 			local panel = CreateFrame("Frame", nil, self)
 			TukuiDB.CreatePanel(panel, 1, 17, "BOTTOM", self, "BOTTOM", 0, 0)
 			panel:SetFrameLevel(2)
@@ -123,7 +123,7 @@ local function Shared(self, unit)
 		
 		health.value = TukuiDB.SetFontString(health, theme_font, theme_fsize, theme_fflag)
 		if unitframes_style then
-			health.value:SetPoint("RIGHT", panel, "RIGHT", -4, 0)
+			health.value:SetPoint("RIGHT", self.panel, "RIGHT", -4, 0)
 		else
 			health.value:SetPoint("RIGHT", health, "RIGHT", -4, 0)
 		end
@@ -131,7 +131,7 @@ local function Shared(self, unit)
 
 		power.value = TukuiDB.SetFontString(health, theme_font, theme_fsize, theme_fflag)
 		if unitframes_style then
-			power.value:SetPoint("LEFT", panel, "LEFT", 5, 0)
+			power.value:SetPoint("LEFT", self.panel, "LEFT", 5, 0)
 		else
 			power.value:SetPoint("LEFT", health, "LEFT", 5, 0)
 		end
@@ -144,7 +144,7 @@ local function Shared(self, unit)
 		if (unit == "target") then			
 			local Name = health:CreateFontString(nil, "OVERLAY")
 			if unitframes_style then
-				Name:SetPoint("LEFT", panel, "LEFT", TukuiDB.Scale(4), 0)
+				Name:SetPoint("LEFT", self.panel, "LEFT", TukuiDB.Scale(4), 0)
 			else
 				Name:SetPoint("LEFT", health, "LEFT", TukuiDB.Scale(4), 0)
 			end
@@ -159,7 +159,7 @@ local function Shared(self, unit)
 		----- [[    I set size like this, fuck new way!!    ]] -----
 		
 		if unitframes.V3_Style then
-			self:SetAttribute('initial-height', ((health:GetHeight() + 4) + (power:GetHeight() + 4) + (panel:GetHeight()) + 6))
+			self:SetAttribute('initial-height', ((health:GetHeight() + 4) + (power:GetHeight() + 4) + (self.panel:GetHeight()) + 6))
 		else
 			self:SetAttribute('initial-height', ((health:GetHeight() + 4) + (power:GetHeight() + 4) + 3))
 		end
