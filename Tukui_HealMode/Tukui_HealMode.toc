@@ -1,0 +1,12 @@
+## Interface: 40000
+
+## Author: Tukz
+
+## Title: |cffC495DDTukui|r HealMode
+
+## RequiredDeps: Tukui
+## OptionalDeps: ecUnitframes
+
+layout.lua
+oUF_HealMode_Party.lua
+oUF_HealMode_Raid.lua
