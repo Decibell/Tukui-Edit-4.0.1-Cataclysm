@@ -158,7 +158,7 @@ local function Shared(self, unit)
 
 		----- [[    I set size like this, fuck new way!!    ]] -----
 		
-		if unitframes.V3_Style then
+		if unitframes_style then
 			self:SetAttribute('initial-height', ((health:GetHeight() + 4) + (power:GetHeight() + 4) + (self.panel:GetHeight()) + 6))
 		else
 			self:SetAttribute('initial-height', ((health:GetHeight() + 4) + (power:GetHeight() + 4) + 3))
@@ -593,6 +593,14 @@ local function Shared(self, unit)
 		self.Power.border = pBorder
 
 		
+		----- [[    Unit Name    ]] -----
+		local Name = health:CreateFontString(nil, "OVERLAY")
+		Name:SetPoint("CENTER", health, "CENTER", 0, 0)
+		Name:SetFont(theme_font, theme_fsize, theme_fflag)
+		Name:SetJustifyH("CENTER")
+		self.Name = Name
+
+		
 		----- [[	Health and Power Colors  ]] -----
 		
 		health.frequentUpdates = true
@@ -611,6 +619,8 @@ local function Shared(self, unit)
 			hBg.multiplier = 0.3
 			
 			power.colorPower = true
+			
+			self:Tag(Name, '[Tukui:namemedium]')
 		else
 			health.colorTapping = false
 			health.colorDisconnected = false
@@ -622,6 +632,8 @@ local function Shared(self, unit)
 			power.colorDisconnected = true
 			power.colorClass = true
 			power.colorReaction = true
+			
+			self:Tag(Name, '[Tukui:getnamecolor][Tukui:namemedium]')
 		end
 		
 		
@@ -630,16 +642,7 @@ local function Shared(self, unit)
 		self:SetAttribute('initial-height', ((health:GetHeight() + 4) + (power:GetHeight() + 4) + 3))
 		self:SetAttribute('initial-width', TukuiDB.Scale(130))
 		
-		
-		----- [[    Unit Name    ]] -----
-		local Name = health:CreateFontString(nil, "OVERLAY")
-		Name:SetPoint("CENTER", health, "CENTER", 0, 0)
-		Name:SetFont(theme_font, theme_fsize, theme_fflag)
-		Name:SetJustifyH("CENTER")
 
-		self:Tag(Name, '[Tukui:getnamecolor][Tukui:namemedium]')
-		self.Name = Name
-		
 		----- [[    Auras (Buffs/Debuffs)    ]] -----
 		if unitframes.totdebuffs then
 			local debuffs = CreateFrame("Frame", nil, health)
