@@ -81,6 +81,7 @@
 	<Script file="datatext\hitrating.lua"/>
 	<Script file="datatext\wintergrasp.lua"/>
 	<Script file="datatext\experience.lua"/>
+	<Script file="datatext\reputation.lua"/>
 	<Script file="datatext\mastery.lua"/>
 	
 	<Script file="actionbars\Hide.lua"/>
@@ -118,4 +119,6 @@
 
 	<Script file="class\priest.lua"/>
 	<Script file="class\hunter.lua"/>
+	
+	<Script file="extras\classtimers.lua"/>
 </Ui>

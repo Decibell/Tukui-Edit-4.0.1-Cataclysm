@@ -38,8 +38,8 @@ end
 -- temp shit for classtimer
 TukuiCF["ct"] = {
 	["classtimers"] = true,
-		["classcolored"] = true,
-		["icons"] = true,
+		["classcolored"] = false,
+		["icons"] = false,
 }
 
 TukuiCF["unitframes"] = {
@@ -172,6 +172,8 @@ TukuiCF["datatext"] = {
 	["wintergrasp"] = 0,
 	["mastery"] = 8,
 	
+	["classcolored"] = false,
+		["color"] = { .2, .4, .7 },
 	
 	["battleground"] = true,               -- enable 3 stats in battleground only that replace stat1,stat2,stat3.
 	["fontsize"] = 12,                     -- font size for panels.
@@ -185,7 +187,7 @@ TukuiCF["chat"] = {
 }
 
 TukuiCF["panels"] = {
-	["tinfowidth"] = 345, 					
+	["tinfowidth"] = 345, -- don't use this here, go inside panels.lua -- i need to re-work it 					
 	["shadows"] = true, 					
 	
 	["bottom_panels"] = true,

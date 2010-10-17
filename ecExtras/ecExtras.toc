@@ -1,0 +1,15 @@
+﻿## Interface: 40000
+## Author: Eclípsé
+## Title: |cffCC3333ec|r Extras
+## RequiredDeps: Tukui
+## OptionalDeps: ecUnitframes
+
+local\english.lua
+local\french.lua
+local\german.lua
+local\spanish.lua
+local\russian.lua
+local\taiwan.lua
+local\korean.lua
+
+Tukui_Classtimers.lua

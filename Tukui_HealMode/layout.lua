@@ -428,7 +428,7 @@ local function Shared(self, unit)
 			local buffs = CreateFrame("Frame", nil, self)
 			local debuffs = CreateFrame("Frame", nil, self)
 			
-			if (TukuiDB.myclass == "SHAMAN" or TukuiDB.myclass == "DEATHKNIGHT" or TukuiDB.myclass == "PALADIN" or TukuiDB.myclass == "WARLOCK") and (unitframes.playerauras) and (unit == "player") then
+			if ((TukuiDB.myclass == "SHAMAN" and unitframes.totemtimer) or (TukuiDB.myclass == "DEATHKNIGHT" and unitframes.runebar) or TukuiDB.myclass == "PALADIN" or TukuiDB.myclass == "WARLOCK") and (unitframes.playerauras) and (unit == "player") then
 				buffs:SetPoint("TOPLEFT", self, "TOPLEFT", -1, 37)
 			else
 				buffs:SetPoint("TOPLEFT", self, "TOPLEFT", -1, 26)

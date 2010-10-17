@@ -57,7 +57,11 @@ WeakenedSoulLoader:SetScript("OnEvent", function(self, event, addon)
 
 	if (TukuiCF["unitframes"].ws_show_target) then
 		local WeakenedTargetFrame = CreateFrame("Frame", _, oUF_Tukz_target)
-		WeakenedTargetFrame.Panel = BarPanel(TukuiDB.Scale(4), TukuiDB.Scale(193), TukuiDB.Scale(1), TukuiDB.Scale(3), "BOTTOMLEFT", "BOTTOMLEFT", oUF_Tukz_target, 1, WeakenedTargetFrame, "HIGH")
+		if TukuiCF["unitframes"].V3_Style then
+			WeakenedTargetFrame.Panel = BarPanel(TukuiDB.Scale(3), TukuiDB.Scale(193), TukuiDB.Scale(1), TukuiDB.Scale(23), "BOTTOMLEFT", "BOTTOMLEFT", oUF_Tukz_target, 1, WeakenedTargetFrame, "HIGH")
+		else
+			WeakenedTargetFrame.Panel = BarPanel(TukuiDB.Scale(4), TukuiDB.Scale(193), TukuiDB.Scale(1), TukuiDB.Scale(3), "BOTTOMLEFT", "BOTTOMLEFT", oUF_Tukz_target, 1, WeakenedTargetFrame, "HIGH")
+		end
 		WeakenedTargetFrame.Panel:SetFrameLevel(10)
 
 		ConfigureBar(WeakenedTargetFrame)
@@ -86,7 +90,11 @@ WeakenedSoulLoader:SetScript("OnEvent", function(self, event, addon)
 	-- Weakened Soul bar on player when active.
 	if (TukuiCF["unitframes"].ws_show_player) then
 		local WeakenedPlayerFrame = CreateFrame("Frame", _, oUF_Tukz_player)
-		WeakenedPlayerFrame.Panel = BarPanel(TukuiDB.Scale(4), TukuiDB.Scale(193), TukuiDB.Scale(1), TukuiDB.Scale(3), "BOTTOMLEFT", "BOTTOMLEFT", oUF_Tukz_player, 1, WeakenedPlayerFrame, "HIGH")
+		if TukuiCF["unitframes"].V3_Style then
+			WeakenedPlayerFrame.Panel = BarPanel(TukuiDB.Scale(3), TukuiDB.Scale(193), TukuiDB.Scale(1), TukuiDB.Scale(23), "BOTTOMLEFT", "BOTTOMLEFT", oUF_Tukz_player, 1, WeakenedPlayerFrame, "HIGH")
+		else
+			WeakenedPlayerFrame.Panel = BarPanel(TukuiDB.Scale(4), TukuiDB.Scale(193), TukuiDB.Scale(1), TukuiDB.Scale(3), "BOTTOMLEFT", "BOTTOMLEFT", oUF_Tukz_player, 1, WeakenedPlayerFrame, "HIGH")
+		end
 		
 		ConfigureBar(WeakenedPlayerFrame)
 		-- Check for Weakened Soul on me and show bar if it is

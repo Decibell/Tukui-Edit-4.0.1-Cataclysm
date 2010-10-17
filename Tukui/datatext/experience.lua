@@ -22,8 +22,8 @@ text:SetPoint("CENTER", xp)
 xp.text = text
 
 local xpcolors = {
-	{ r = .8, g = .2, b = .2, a = .7 }, -- Normal
-	{ r = .2, g = .2, b = .8, a = .7 }, -- Rested
+	{ r = .6, g = .3, b = .1 }, -- Normal
+	{ r = .1, g = .3, b = .6 }, -- Rested
 }
 
 local function shortvalue(value)
@@ -46,7 +46,9 @@ local function event(self, event, ...)
 	
 	currValue = shortvalue(currValue)
 	maxValue = shortvalue(maxValue)
-	restXP = shortvalue(restXP)
+	if restXP ~= nil and restXP > 0 then
+		restXP = shortvalue(restXP)
+	end
 	
 	if restXP then
 		text:SetText(currValue .. " / " .. maxValue .. " R: " .. restXP)

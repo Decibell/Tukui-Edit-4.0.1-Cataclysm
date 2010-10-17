@@ -86,7 +86,7 @@ local textures = {
 ----- [[    Style    ]] -----
 
 function TukuiDB.StyleShadow(f)
-	if f.shadow then return end
+	if f.shadow or not TukuiCF["panels"].shadows then return end
 	f.shadow = CreateFrame("Frame", nil, f)
 	f.shadow:SetFrameLevel(0)
 	f.shadow:SetFrameStrata(f:GetFrameStrata())

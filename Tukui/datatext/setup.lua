@@ -1,14 +1,14 @@
 -- temp
 EclipseSettings = { }
 
--- if TukuiCF["datatext"].classcolor == true then
+if TukuiCF["datatext"].classcolor == true then
 	local _,class = UnitClass("player")
 	local r, g, b = RAID_CLASS_COLORS[class].r, RAID_CLASS_COLORS[class].g, RAID_CLASS_COLORS[class].b
 	cStart = ("|cff%.2x%.2x%.2x"):format(r * 255, g * 255, b * 255)
--- else
-	-- local r, g, b = unpack(TukuiCF["datatext"].color)
-	-- cStart = ("|cff%.2x%.2x%.2x"):format(r * 255, g * 255, b * 255)
--- end
+else
+	local r, g, b = unpack(TukuiCF["datatext"].color)
+	cStart = ("|cff%.2x%.2x%.2x"):format(r * 255, g * 255, b * 255)
+end
 cEnd = "|r"
 
 function TukuiDB.PP(p, obj)

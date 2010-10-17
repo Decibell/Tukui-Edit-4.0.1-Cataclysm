@@ -115,7 +115,7 @@ local function UpdateBuffAnchors()
 					buff:SetPoint("TOPRIGHT", TukuiMinimap, "TOPLEFT", TukuiDB.Scale(-3), 0)
 				end
 			else
-				buff:SetPoint("RIGHT", previousBuff, "LEFT", TukuiDB.Scale(-4), 0)
+				buff:SetPoint("RIGHT", previousBuff, "LEFT", TukuiDB.Scale(-3), 0)
 			end
 			previousBuff = buff
 		end		

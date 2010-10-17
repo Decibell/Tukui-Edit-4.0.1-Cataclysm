@@ -5,11 +5,7 @@
 hooksecurefunc(VehicleSeatIndicator,"SetPoint",function(_,_,parent) -- vehicle seat indicator
     if (parent == "MinimapCluster") or (parent == _G["MinimapCluster"]) then
 		VehicleSeatIndicator:ClearAllPoints()
-		if TukuiCF["actionbar"].bottomrows == true then
-			VehicleSeatIndicator:SetPoint("BOTTOM", UIParent, "BOTTOM", 0, TukuiDB.Scale(228))
-		else
-			VehicleSeatIndicator:SetPoint("BOTTOM", UIParent, "BOTTOM", 0, TukuiDB.Scale(200))
-		end
+		VehicleSeatIndicator:SetPoint("TOPLEFT", UIParent, "TOPLEFT", TukuiDB.Scale(30), TukuiDB.Scale(-100))
     end
 end)
 
@@ -42,19 +38,19 @@ end
 
 local function vehmouse()
 	if VehicleSeatIndicator:IsShown() then
-		VehicleSeatIndicator:SetAlpha(0)
+		VehicleSeatIndicator:SetAlpha(.6)
 		VehicleSeatIndicator:EnableMouse(true)
 		
 		VehicleNumSeatIndicator()
 		
 		VehicleSeatIndicator:HookScript("OnEnter", function() VehicleSeatIndicator:SetAlpha(1) vehmousebutton(1) end)
-		VehicleSeatIndicator:HookScript("OnLeave", function() VehicleSeatIndicator:SetAlpha(0) vehmousebutton(0) end)
+		VehicleSeatIndicator:HookScript("OnLeave", function() VehicleSeatIndicator:SetAlpha(.6) vehmousebutton(0) end)
 
 		for i=1, TukuiDB.numSeat do
 			local pb = _G["VehicleSeatIndicatorButton"..i]
-			pb:SetAlpha(0)
+			pb:SetAlpha(.6)
 			pb:HookScript("OnEnter", function(self) VehicleSeatIndicator:SetAlpha(1) vehmousebutton(1) end)
-			pb:HookScript("OnLeave", function(self) VehicleSeatIndicator:SetAlpha(0) vehmousebutton(0) end)
+			pb:HookScript("OnLeave", function(self) VehicleSeatIndicator:SetAlpha(.6) vehmousebutton(0) end)
 		end
 	end
 end
