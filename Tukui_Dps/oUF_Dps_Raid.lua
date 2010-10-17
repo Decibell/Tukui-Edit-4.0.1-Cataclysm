@@ -140,7 +140,7 @@ local function Shared(self, unit)
 	----- [[    Range Alpha    ]] -----
 
 	if unitframes.showrange then
-		local range = {insideAlpha = 1, outsideAlpha = 1}--unitframes.raidalphaoor}
+		local range = {insideAlpha = 1, outsideAlpha = unitframes.raidalphaoor}
 		self.Range = range
 	end
 	
