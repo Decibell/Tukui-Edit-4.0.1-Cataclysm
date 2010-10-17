@@ -9,16 +9,16 @@ Kill:SetScript("OnEvent", function(self, event, addon)
 	if event == "PLAYER_ENTERING_WORLD" then
 		self:UnregisterEvent("PLAYER_ENTERING_WORLD")
 		
-		if IsAddOnLoaded("Tukui_Dps_Layout") or IsAddOnLoaded("Tukui_Heal_Layout") then
+		if IsAddOnLoaded("Tukui_Dps") or IsAddOnLoaded("Tukui_Heal") or IsAddOnLoaded("Tukui_HealMode") then
 			InterfaceOptionsFrameCategoriesButton11:SetScale(0.00001)
 			InterfaceOptionsFrameCategoriesButton11:SetAlpha(0)
 			
 			-- this part of code is temporary until it's included in oUF Framework by Haste.
 			-- It hide Blizzard raid frames.
-			-- CompactRaidFrameManager:SetScale(0.00001) -- temp disable this anyway for coding/testing
-			-- CompactRaidFrameManager:SetAlpha(0)
-			-- CompactRaidFrameContainer:SetScale(0.00001)
-			-- CompactRaidFrameContainer:SetAlpha(0)
+			CompactRaidFrameManager:SetScale(0.00001) -- temp disable this anyway for coding/testing
+			CompactRaidFrameManager:SetAlpha(0)
+			CompactRaidFrameContainer:SetScale(0.00001)
+			CompactRaidFrameContainer:SetAlpha(0)
 		end	
 	else
 		if addon ~= "Tukui" then return end

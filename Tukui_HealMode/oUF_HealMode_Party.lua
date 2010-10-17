@@ -263,8 +263,8 @@ oUF:Factory(function(self)
 	"initial-width", 70,
 	"initial-height", 43,	
 	"showParty", true, 
-	"showSolo", true, -- TukuiCF["unitframes"].show_solomode
-	"showPlayer", true, -- TukuiCF["unitframes"].showplayerinparty, 
+	"showSolo", TukuiCF["unitframes"].show_solomode,
+	"showPlayer", TukuiCF["unitframes"].showplayerinparty, 
 	"groupFilter", "1,2,3,4,5,6,7,8", 
 	"groupingOrder", "1,2,3,4,5,6,7,8", 
 	"groupBy", "GROUP", 
