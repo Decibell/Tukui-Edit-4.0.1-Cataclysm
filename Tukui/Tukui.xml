@@ -80,6 +80,8 @@
 	<Script file="datatext\location_coords.lua"/>
 	<Script file="datatext\hitrating.lua"/>
 	<Script file="datatext\wintergrasp.lua"/>
+	<Script file="datatext\experience.lua"/>
+	<Script file="datatext\mastery.lua"/>
 	
 	<Script file="actionbars\Hide.lua"/>
 	<Script file="actionbars\Bar1.lua"/>

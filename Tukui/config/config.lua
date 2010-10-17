@@ -43,12 +43,13 @@ TukuiCF["ct"] = {
 }
 
 TukuiCF["unitframes"] = {
-	["V3_Style"] = false, --
+	["V3_Style"] = true, --
 
 	["health_deficit"] = true, --
-	["show_solomode"] = false, --
+	["show_solomode"] = true, --
 	["health_vertical"] = false, --
-	
+	["classcolor"] = false,
+
 	-- general options
 	["enable"] = true,                     -- do i really need to explain this?
 	["enemyhcolor"] = false,               -- enemy target (players) color by hostility, very useful for healer.
@@ -76,7 +77,6 @@ TukuiCF["unitframes"] = {
 	["playeraggro"] = true,                -- color player border to red if you have aggro on current target.
 	["positionbychar"] = true,             -- save X, Y position with /uf (movable frame) per character instead of per account.
 	["healcomm"] = false,                  -- enable healprediction support.
-	["classcolor"] = false,
 	
 	-- raid layout
 	["showrange"] = true,                  -- show range opacity on raidframes
@@ -159,7 +159,7 @@ TukuiCF["datatext"] = {
 	["hps_text"] = 0,                      -- show a heal meter on panels
 	["power"] = 7,                         -- show your attackpower/spellpower/healpower/rangedattackpower whatever stat is higher gets displayed
 	["haste"] = 9,                         -- show your haste rating on panels.
-	["crit"] = 8,                          -- show your crit rating on panels.
+	["crit"] = 10,                          -- show your crit rating on panels.
 	["avd"] = 0,                           -- show your current avoidance against the level of the mob your targeting
 	["armor"] = 0,                         -- show your armor value against the level mob you are currently targeting
 	
@@ -169,8 +169,8 @@ TukuiCF["datatext"] = {
 	["stat_block"] = true, 			-- new 4 block system in top-right screen for important datatexts only (time/mem/latency/fps)
 	
 	["hitrating"] = 11,
-	["wintergrasp"] = 10,
-	
+	["wintergrasp"] = 0,
+	["mastery"] = 8,
 	
 	
 	["battleground"] = true,               -- enable 3 stats in battleground only that replace stat1,stat2,stat3.
