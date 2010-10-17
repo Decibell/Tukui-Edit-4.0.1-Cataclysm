@@ -1,3 +1,6 @@
+if UnitLevel("player") == MAX_PLAYER_LEVEL then return end
+
+
 local xp = CreateFrame("Frame", "TukuiExperience", UIParent)
 if TukuiCF["datatext"].stat_block then
 	TukuiDB.CreatePanel(xp, 150, TukuiDB.infoheight, "TOPLEFT", TukuiTimeStats, "TOPLEFT", TukuiTimeStats:GetWidth() + 3, 0)
@@ -34,27 +37,25 @@ local function shortvalue(value)
 end
 
 local function event(self, event, ...)
-	if UnitLevel("player") < MAX_PLAYER_LEVEL then
-		local currValue = UnitXP("player")
-		local maxValue = UnitXPMax("player")
-		local restXP = GetXPExhaustion()
+	local currValue = UnitXP("player")
+	local maxValue = UnitXPMax("player")
+	local restXP = GetXPExhaustion()
 
-		bar:SetMinMaxValues(0, maxValue)
-		bar:SetValue(currValue)
+	bar:SetMinMaxValues(0, maxValue)
+	bar:SetValue(currValue)
+	
+	currValue = shortvalue(currValue)
+	maxValue = shortvalue(maxValue)
+	restXP = shortvalue(restXP)
+	
+	if restXP then
+		text:SetText(currValue .. " / " .. maxValue .. " R: " .. restXP)
 		
-		currValue = shortvalue(currValue)
-		maxValue = shortvalue(maxValue)
-		restXP = shortvalue(restXP)
+		bar:SetStatusBarColor(xpcolors[2].r, xpcolors[2].g, xpcolors[2].b, xpcolors[2].a)
+	else
+		text:SetText(currValue .. " / " .. maxValue)
 		
-		if restXP then
-			text:SetText(currValue .. " / " .. maxValue .. " R: " .. restXP)
-			
-			bar:SetStatusBarColor(xpcolors[2].r, xpcolors[2].g, xpcolors[2].b, xpcolors[2].a)
-		else
-			text:SetText(currValue .. " / " .. maxValue)
-			
-			bar:SetStatusBarColor(xpcolors[1].r, xpcolors[1].g, xpcolors[1].b, xpcolors[1].a)
-		end
+		bar:SetStatusBarColor(xpcolors[1].r, xpcolors[1].g, xpcolors[1].b, xpcolors[1].a)
 	end
 end
 
